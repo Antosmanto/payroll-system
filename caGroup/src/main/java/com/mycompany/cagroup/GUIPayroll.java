@@ -6,7 +6,9 @@
 package com.mycompany.cagroup;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -133,6 +135,11 @@ public class GUIPayroll extends javax.swing.JFrame {
         });
 
         saveBtn.setText("save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         dobTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,10 +279,10 @@ public class GUIPayroll extends javax.swing.JFrame {
             m.setSalary(Double.parseDouble(salaryTF.getText()));
             employees.add(m);
             JOptionPane.showMessageDialog(null, "Manger added");
-            nameTF.setText(" ");
-            idTF.setText(" ");
-            dobTF.setText(" ");
-            salaryTF.setText(" ");
+            nameTF.setText(null);
+            idTF.setText(null);
+            dobTF.setText(null);
+            salaryTF.setText(null);
             
         }
         else if(floorStaffRB.isSelected()){
@@ -368,6 +375,29 @@ public class GUIPayroll extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_logOutBtnActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            aesClass encryption = new aesClass();
+
+            ArrayList< String> txtMegs = new ArrayList();
+
+            encryption.hide();
+            for (int i = 0; i < employees.size(); i++) {
+                String hide = employees.get(i).getDetails();
+                String HiddenTxt = encryption.encrypt(hide);
+                txtMegs.add(hide);
+            }
+            for (String test : txtMegs) {
+                JOptionPane.showMessageDialog(null, test);
+            }
+
+        } catch (Exception ignored) {
+        }
+         
+    }//GEN-LAST:event_saveBtnActionPerformed
 
     /**
      * @param args the command line arguments

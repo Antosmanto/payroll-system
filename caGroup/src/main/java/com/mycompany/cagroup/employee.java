@@ -54,6 +54,11 @@ public abstract class employee {
     public void printDetails(){
         System.out.println("Employee Details:"+id+","+name+","+dob);
     }
+
+    @Override
+    public String toString() {
+        return "Employee: " +name+" "+ id+" "+ dob+" ";
+    }
     
     public String getDetails(){
         return "Employee Details: "+id+","+name+","+dob;
