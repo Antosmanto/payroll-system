@@ -6,21 +6,26 @@
 package com.mycompany.cagroup;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Antoinette M. bolger
  */
-public class GUIPayroll extends javax.swing.JInternalFrame {
+public class GUIPayroll extends javax.swing.JFrame {
     private ArrayList <employee> employees;
 
 
     /**
-     * Creates new form NewJInternalFrame
+     * Creates new form NewJFrame
      */
     public GUIPayroll() {
         employees = new ArrayList<>();
         initComponents();
+        hoursLbl.setVisible(false);
+        rateLbl.setVisible(false);
+        hoursTF.setVisible(false);
+        rateTF.setVisible(false);
     }
 
     /**
@@ -32,78 +37,353 @@ public class GUIPayroll extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        addBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
-        displayBtn = new javax.swing.JButton();
-        saveBtn = new javax.swing.JButton();
         logOutBtn = new javax.swing.JButton();
+        idTF = new javax.swing.JTextField();
+        salaryTF = new javax.swing.JTextField();
+        titleLbl = new javax.swing.JLabel();
+        hoursTF = new javax.swing.JTextField();
+        nameLbl = new javax.swing.JLabel();
+        rateTF = new javax.swing.JTextField();
+        dobLbl = new javax.swing.JLabel();
+        managerRB = new javax.swing.JRadioButton();
+        idLbl = new javax.swing.JLabel();
+        floorStaffRB = new javax.swing.JRadioButton();
+        salaryLbl = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
+        rateLbl = new javax.swing.JLabel();
+        deleteBtn = new javax.swing.JButton();
+        hoursLbl = new javax.swing.JLabel();
+        displayBtn = new javax.swing.JButton();
+        nameTF = new javax.swing.JTextField();
+        saveBtn = new javax.swing.JButton();
+        dobTF = new javax.swing.JTextField();
 
-        jButton1.setText("jButton1");
-
-        addBtn.setText("add");
-
-        deleteBtn.setText("deleate");
-
-        displayBtn.setText("display");
-
-        saveBtn.setText("save");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         logOutBtn.setText("log out");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(addBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(displayBtn)
-                .addGap(18, 18, 18)
-                .addComponent(saveBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(logOutBtn)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addBtn)
-                    .addComponent(deleteBtn)
-                    .addComponent(displayBtn)
-                    .addComponent(saveBtn)
-                    .addComponent(logOutBtn))
-                .addContainerGap())
-        );
+        titleLbl.setBackground(new java.awt.Color(255, 255, 255));
+        titleLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titleLbl.setForeground(new java.awt.Color(51, 0, 102));
+        titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLbl.setText("Employee Application");
+
+        nameLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nameLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nameLbl.setText("Name: ");
+
+        dobLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        dobLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dobLbl.setText("DOB: ");
+
+        managerRB.setText(" Manger");
+        managerRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managerRBActionPerformed(evt);
+            }
+        });
+
+        idLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        idLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        idLbl.setText("ID:");
+
+        floorStaffRB.setText(" CoWorker");
+        floorStaffRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorStaffRBActionPerformed(evt);
+            }
+        });
+
+        salaryLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salaryLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        salaryLbl.setText("Salary:");
+
+        addBtn.setText("add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        rateLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rateLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rateLbl.setText("Hourly Rate:");
+
+        deleteBtn.setText("deleate");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        hoursLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        hoursLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hoursLbl.setText("Hours:");
+
+        displayBtn.setText("display");
+        displayBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayBtnActionPerformed(evt);
+            }
+        });
+
+        saveBtn.setText("save");
+
+        dobTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dobTFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(rateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(rateTF))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(hoursLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(hoursTF))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(127, 127, 127)
+                            .addComponent(addBtn)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(deleteBtn)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(displayBtn)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(saveBtn)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(logOutBtn))
+                                .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(salaryLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(salaryTF))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(idLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(idTF))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(dobLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(dobTF))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(nameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(managerRB, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(floorStaffRB, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(nameTF))))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(50, 50, 50)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(managerRB)
+                        .addComponent(floorStaffRB))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nameLbl)
+                        .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(dobLbl)
+                        .addComponent(dobTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(idLbl)
+                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(salaryLbl)
+                        .addComponent(salaryTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rateLbl)
+                        .addComponent(rateTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(hoursLbl)
+                        .addComponent(hoursTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(50, 50, 50)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addBtn)
+                        .addComponent(deleteBtn)
+                        .addComponent(displayBtn)
+                        .addComponent(saveBtn)
+                        .addComponent(logOutBtn))
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void managerRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerRBActionPerformed
+        // TODO add your handling code here:
+        hoursLbl.setVisible(false);
+        rateLbl.setVisible(false);
+        hoursTF.setVisible(false);
+        rateTF.setVisible(false);
+        salaryLbl.setVisible(true);
+        salaryTF.setVisible(true);
+    }//GEN-LAST:event_managerRBActionPerformed
+
+    private void floorStaffRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorStaffRBActionPerformed
+        // TODO add your handling code here:
+        hoursLbl.setVisible(true);
+        rateLbl.setVisible(true);
+        hoursTF.setVisible(true);
+        rateTF.setVisible(true);
+        salaryLbl.setVisible(false);
+        salaryTF.setVisible(false);
+    }//GEN-LAST:event_floorStaffRBActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        if(managerRB.isSelected()){
+            management m = new management();
+            m.setName(nameTF.getText());
+            m.setId(idTF.getText());
+            m.setDob(dobTF.getText());
+            m.setSalary(Double.parseDouble(salaryTF.getText()));
+            employees.add(m);
+            JOptionPane.showMessageDialog(null, "Manger added");
+            nameTF.setText(" ");
+            idTF.setText(" ");
+            dobTF.setText(" ");
+            salaryTF.setText(" ");
+            
+        }
+        else if(floorStaffRB.isSelected()){
+            coWorker c = new coWorker();
+            c.setName(nameTF.getText());
+            c.setId(idTF.getText());
+            c.setDob(dobTF.getText());
+            c.setHours(Double.parseDouble(hoursTF.getText()));
+            c.setHourlyRate(Double.parseDouble(rateTF.getText()));
+            employees.add(c);
+            JOptionPane.showMessageDialog(null, "CoWorker added");
+            nameTF.setText(" ");
+            idTF.setText(" ");
+            dobTF.setText(" ");
+            hoursTF.setText(" ");
+            rateTF.setText(" ");
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        if (employees.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Sorry, there are no employees to delete");
+        }
+        else {
+            String searchTerm = JOptionPane.showInputDialog(null, "Enter an id to search for.");
+            for(int i = 0; i < employees.size();i++){
+                if(employees.get(i).getId().equals(searchTerm)){
+                    employees.remove(employees.get(i));
+                }
+                break;
+            }
+        }
+        }
+        public static void main(String args[]) {
+            /* Set the Nimbus look and feel */
+            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+            */
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                java.util.logging.Logger.getLogger(EmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                java.util.logging.Logger.getLogger(EmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                java.util.logging.Logger.getLogger(EmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                java.util.logging.Logger.getLogger(EmployeeGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new GUIPayroll().setVisible(true);
+                }
+            });
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void displayBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtnActionPerformed
+        // TODO add your handling code here:
+        if (employees.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Sorry, there are no employees to search");
+        }
+        else {
+            String searchTerm = JOptionPane.showInputDialog(null, "Enter an id to search for.");
+            for (employee e : employees) {
+                if (e.getId().equals(searchTerm)) {
+                    JOptionPane.showMessageDialog(null, e.getDetails());
+                }
+            }
+        }
+    }//GEN-LAST:event_displayBtnActionPerformed
+
+    private void dobTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dobTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dobTFActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton displayBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel dobLbl;
+    private javax.swing.JTextField dobTF;
+    private javax.swing.JRadioButton floorStaffRB;
+    private javax.swing.JLabel hoursLbl;
+    private javax.swing.JTextField hoursTF;
+    private javax.swing.JLabel idLbl;
+    private javax.swing.JTextField idTF;
     private javax.swing.JButton logOutBtn;
+    private javax.swing.JRadioButton managerRB;
+    private javax.swing.JLabel nameLbl;
+    private javax.swing.JTextField nameTF;
+    private javax.swing.JLabel rateLbl;
+    private javax.swing.JTextField rateTF;
+    private javax.swing.JLabel salaryLbl;
+    private javax.swing.JTextField salaryTF;
     private javax.swing.JButton saveBtn;
+    private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 }
