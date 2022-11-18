@@ -388,7 +388,7 @@ public class GUIPayroll extends javax.swing.JFrame {
             for (int i = 0; i < employees.size(); i++) {
                 String hide = employees.get(i).getDetails();
                 String HiddenTxt = encryption.encrypt(hide);
-                txtMegs.add(hide);
+                txtMegs.add(HiddenTxt);
             }
             for (String test : txtMegs) {
                 JOptionPane.showMessageDialog(null, test);
